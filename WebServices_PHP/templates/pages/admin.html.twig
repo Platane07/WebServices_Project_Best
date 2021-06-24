@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Usager index{% endblock %}
+
+{% block body %}
+
+
+    <div class="card col-md-12">
+        <div class="card-header text-center">
+            <h1>Espace administrateur</h1>
+        </div>
+        <div class="card-body row justify-content-center">
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="{{ asset('images/pizza.jpg') }}">
+                    <div class="card-body">
+                        <h5 class="card-title">Gérer les articles</h5>
+                        <a href="{{ path('article_index') }}" class="btn btn-primary">Ouvrir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="{{ asset('images/junk_food.jpg') }}">
+                    <div class="card-body">
+                        <h5 class="card-title">Gérer les catégories</h5>
+                        <a href="{{ path('categorie_index') }}" class="btn btn-primary">Ouvrir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="{{ asset('images/commande.png') }}">
+                    <div class="card-body">
+                        <h5 class="card-title">Gérer les commandes</h5>
+                        <a href="{{ path('commande_index') }}" class="btn btn-primary">Ouvrir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

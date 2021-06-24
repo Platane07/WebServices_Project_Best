@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Salut gente demoiseaux{% endblock %}
+
+{% block body %}
+
+    <div class="row justify-content-center">
+        <div class="card col-md-4 text-center">
+            <div class="card-header text-center">
+                <h1>{{ 'default.contact.page' | trans}}</h1>
+            </div>
+            <div class="card-body">
+                <div class="card text-center">
+                    <div class="card-body">
+                    <img src="{{ asset("images/iut2_info.png") }}" class="card-img-top text-center" style="width:100%" alt="Logo iut2 Grenoble">
+                        <p class="card-text">{{ 'default.contact.sousTitre' | trans}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

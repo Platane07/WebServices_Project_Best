@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!
+{% endblock %}
+
+{% block body %}
+	<div class="card col-md-12">
+	{%  if articles|length > 0  %}
+		<div class="card-header text-center">
+			<h1>Panier : {{ total }}€</h1>
+		</div>
+		<div class="card-body row text-center justify-content-center">
+			{% for article in articles %}
+				<div class="col-md-3">
+					<div class="card">
+						<img src="{{ asset(article.visuel) }}" class="card-img-top text-center" style="width:100%" alt="Logo Boutique Symfony">
+						<div class="card-body">
+							<h5 class="card-title">{{ article.libelle }}</h5>
+							<p class="card-text">{{ article.prix | currency_convert | format_currency(devise) }}</p>
+							<div class="row justify-content-center mx-auto" style="margin-bottom:10px;">
+								<a href="{{ path('panier_enlever', {'idArticle' : article.id, 'quantite' : 1}) }}" class="btn btn-secondary">-</a>
+								<p class="card-text" style="margin: 10px; font-weight: bold;">{{ article.quantite }}</p>
+								<a href="{{ path('panier_ajouter', { 'idArticle': article.id, 'quantite' : 1}) }}" class="btn btn-secondary">+</a>
+							</div>
+							<a href="{{ path('panier_supprimer', { 'idArticle': article.id}) }}" class="btn btn-danger" style="height: 40px">Supprimer</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<a href="{{ path('panier_vider') }}" class="btn btn-danger">Vider le panier</a>
+		<br>
+		<a href="{{ path('creer_commande') }}" class="btn btn-primary">Créer commande</a>
+	</div>
+	{% else %}
+		<div class="card-header text-center">
+			<h1>Votre panier est vide</h1>
+		</div>
+		<a href="{{ path('boutique') }}" class="btn btn-primary">Aller à la boutique</a>
+	</div>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block body %}
+    <div class="card col-md-12">
+        <div class="card-header text-center">
+            <h1>{{ 'default.index.titre' | trans}}</h1>
+        </div>
+        <a href="{{ path("boutique") }}">
+            <div class="card-body clickable">
+                <div class="card text-center">
+                    <img src="{{ asset("images/epicerie.jpg") }}" class="card-img-top text-center" style="width:100%" alt="Logo Boutique Symfony">
+                    <div class="card-body">
+                        <p class="card-text">{{ 'default.index.sousTitre' | trans}}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+@import '~bootstrap/scss/bootstrap';
+
+/*body {
+    background-color: #123456 !important;
+}*/
+
+.clickable {
+  transition : transform .2s;
+}
+
+.clickable:hover {
+  transform: scale(1,5);
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="xiNyttb" resname="default.navbar.accueil">
+        <source>default.navbar.accueil</source>
+        <target>Home</target>
+      </trans-unit>
+      <trans-unit id="88T1kfJ" resname="default.navbar.contact">
+        <source>default.navbar.contact</source>
+        <target>Contact</target>
+      </trans-unit>
+      <trans-unit id="RBO4wFC" resname="default.navbar.boutique">
+        <source>default.navbar.boutique</source>
+        <target>Shop</target>
+      </trans-unit>
+      <trans-unit id="JuKBeD7" resname="default.navbar.chercher">
+        <source>default.navbar.chercher</source>
+        <target>Search</target>
+      </trans-unit>
+      <trans-unit id="Ox52Bgu" resname="default.navbar.panier">
+        <source>default.navbar.panier</source>
+        <target>Items</target>
+      </trans-unit>
+      <trans-unit id="flmk4AW" resname="default.navbar.compte">
+        <source>default.navbar.compte</source>
+        <target>My account</target>
+      </trans-unit>
+      <trans-unit id="Ldj8Evx" resname="default.navbar.admin">
+        <source>default.navbar.admin</source>
+        <target>Admin area</target>
+      </trans-unit>
+      <trans-unit id="i4TIa5K" resname="default.navbar.deconnexion">
+        <source>default.navbar.deconnexion</source>
+        <target>Disconnect</target>
+      </trans-unit>
+      <trans-unit id="dN95_a7" resname="default.navbar.devises">
+        <source>default.navbar.devises</source>
+        <target>Currency</target>
+      </trans-unit>
+      <trans-unit id="Z72iDve" resname="default.navbar.langues">
+        <source>default.navbar.langues</source>
+        <target>Language</target>
+      </trans-unit>
+      <trans-unit id="yi_J3BU" resname="default.index.titre">
+        <source>default.index.titre</source>
+        <target>Welcome to our shop</target>
+      </trans-unit>
+      <trans-unit id="wCIo071" resname="default.index.sousTitre">
+        <source>default.index.sousTitre</source>
+        <target>At Hassan Sehef's Shop, that's possible !</target>
+      </trans-unit>
+      <trans-unit id="7hPCwHZ" resname="default.contact.page">
+        <source>default.contact.page</source>
+        <target>Contact us !</target>
+      </trans-unit>
+      <trans-unit id=".5EHnLI" resname="default.contact.sousTitre">
+        <source>default.contact.sousTitre</source>
+        <target>IUT2 picture</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

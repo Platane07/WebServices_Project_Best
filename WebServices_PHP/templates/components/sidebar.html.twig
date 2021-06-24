@@ -1,0 +1,17 @@
+ <div class="card">
+        <div class="card-header text-center">
+            <h4>Top des ventes</h4>
+        </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    {% for article in articles %}
+                        <a href="{{ path("rayon", { 'id': article.libelle}) }}"></a>
+                        <li class="list-group-item text-center clickable">
+                            <img src="{{ asset(article.visuel) }}" style="height: 40px;">
+                            <p>{{ article.libelle }}<br> {{ article.total }}</p>
+                        </li>
+                    {%  endfor %}
+                </ul>
+            </div>
+         </div>
+    </div>

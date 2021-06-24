@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Usager index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <h1>Vos commandes</h1>
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Numéro</th>
+                    <th>Statut</th>
+                    <th>date de la commande</th>
+                    <th>actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for commande in commandes %}
+                    <tr>
+                        <td>{{ commande.id }}</td>
+                        <td>{{ commande.date_commande ? commande.date_commande|date('Y-m-d') : '' }}</td>
+                        <td>{{ commande.statut }}</td>
+                        <td><a href="{{ path('commande_delete', {'id': commande.id}) }}" class="btn btn-danger"> Supprimer</a></td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">Vous n'avez encore rien commandé</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

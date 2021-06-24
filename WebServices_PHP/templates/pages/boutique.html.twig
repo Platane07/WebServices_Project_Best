@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!
+{% endblock %}
+
+{% block body %}
+	<div class="card col-md-12">
+		<div class="card-header text-center">
+			<h1>Catégories</h1>
+		</div>
+		<div class="card-body row justify-content-center">
+			{% for categorie in categories %}
+			<div class="col-md-3">
+				<div class="card">
+					<img src="{{ asset(categorie.visuel) }}" class="card-img-top text-center" style="width:100%" alt="Logo Boutique Symfony">
+					<div class="card-body">
+						<h5 class="card-title">{{ categorie.libelle }}</h5>
+						<p class="card-text">{{ categorie.texte }}</p>
+						<a href="{{ path("rayon", { 'id': categorie.id}) }}" class="btn btn-primary">accéder au rayon</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+		</div>
+	</div>
+{% endblock %}

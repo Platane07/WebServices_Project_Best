@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!
+{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper text-center">
+        <h1>Votre commande</h1>
+            <div class="column justify-content-center">
+                <h2>Commande N°{{ commande.id }}</h2>
+                <h2>Créée le {{ commande.dateCommande|date('Y-m-d') }}</h2>
+                <h2>Statut : {{ commande.statut }}</h2>
+            </div>
+            <a href="{{ path('boutique') }}" class="btn btn-danger">Retourner à la boutique</a>
+        <ul></ul>
+    </div>
+{% endblock %}
