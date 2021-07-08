@@ -8,11 +8,21 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiSubresource;
-
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\ExistsFilter;
+use ApiPlatform\Core\Annotation\ApiFilter;
 
 
 /**
  * @ApiResource
+ * @ApiFilter(OrderFilter::class, properties={"date_commande"})
+ * @ApiFilter(ExistsFilter::class, properties={"parent", "statut"})
+ * @ApiFilter(
+ *  SearchFilter::class, properties={
+ *    "usager.email": "exact",
+ *    "statut": "exact",
+ *  })
  * @ORM\Entity(repositoryClass=CommandeRepository::class)
  */
 class Commande

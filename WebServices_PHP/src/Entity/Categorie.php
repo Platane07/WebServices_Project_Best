@@ -40,6 +40,7 @@ class Categorie
     private $visuel;
 
     /**
+     * @ApiSubresource
      * @ORM\OneToMany(targetEntity=Article::class, mappedBy="categorie", orphanRemoval=true)
      */
     private $articles;

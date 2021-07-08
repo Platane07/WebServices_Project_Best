@@ -9,10 +9,18 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiSubresource;
-
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ApiResource
+ * @ApiFilter(
+ *  SearchFilter::class, properties={
+ *    "email": "exact",
+ *    "roles": "exact",
+ *    "nom": "partial",
+ *    "prenom": "partial",
+ *  })
  * @ORM\Entity(repositoryClass=UsagerRepository::class)
  */
 class Usager implements UserInterface
@@ -51,6 +59,7 @@ class Usager implements UserInterface
     private $prenom;
 
     /**
+     * @ApiSubresource
      * @ORM\OneToMany(targetEntity=Commande::class, mappedBy="id_usager", orphanRemoval=true)
      */
     private $commandes;

@@ -6,17 +6,21 @@ use App\Repository\LigneCommandeRepository;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiSubresource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
+
 
 
 /**
  * @ApiResource
+ * @ApiFilter(OrderFilter::class, properties={"quantite", "prix"})
  * @ORM\Entity(repositoryClass=LigneCommandeRepository::class)
  */
 class LigneCommande
 {
 
     /**
-     * @ApiSubresource
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity=Commande::class, inversedBy="ligneCommandes")
      * @ORM\JoinColumn(nullable=false)
@@ -24,7 +28,6 @@ class LigneCommande
     private $commande;
 
     /**
-     * @ApiSubresource
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="ligneCommandes")
      * @ORM\JoinColumn(nullable=false)

@@ -8,11 +8,19 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiSubresource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+
 
 
 
 /**
  * @ApiResource
+ * * @ApiFilter(SearchFilter::class, properties={
+ *  "libelle": "partial",
+ *  "texte" : "partial",
+ *  "prix" : "exact",
+ * })
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
  */
 class Article
@@ -45,13 +53,13 @@ class Article
     public $prix;
 
     /**
-     * @ApiSubresource
      * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="articles")
      * @ORM\JoinColumn(nullable=false)
      */
     private $categorie;
 
     /**
+     * @ApiSubresource
      * @ORM\OneToMany(targetEntity=LigneCommande::class, mappedBy="id_article")
      */
     private $ligneCommandes;
