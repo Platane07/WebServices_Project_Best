@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Laminas\Soap\AutoDiscover;
+use Laminas\Soap\Wsdl\ComplexTypeStrategy\ArrayOfTypeComplex;
 
 class SoapGenController extends AbstractController
 {
@@ -34,8 +35,10 @@ class SoapGenController extends AbstractController
         ]);*/
 
         $autodiscover->setClass('\App\Soap\SoapOperations')
-            ->setUri('http://localhost:8000/soap')
-            ->setServiceName('SoapGenService');
+            ->setUri('http://localhost:8001/soap')
+            ->setServiceName('SoapGenService')
+            //->setComplexTypeStrategy(new ArrayOfTypeComplex())
+            ;
         header('Content-Type: application/wsdl+xml');
         $autodiscover->generate();
         $autodiscover->dump("../soap.wsdl");

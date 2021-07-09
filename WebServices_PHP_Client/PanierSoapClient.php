@@ -40,7 +40,7 @@ try {
 		'style' => SOAP_DOCUMENT*/
     );
 
-    $soapClient =  new \SoapClient('http://localhost:8000/soap?wsdl', $options);
+    $soapClient =  new \SoapClient('http://localhost:8001/soap?wsdl', $options);
     //header('Content-Type: text/xml');
     //$soapClient->__setSoapHeaders(new SoapHeader('Content-Type','text/xml'));
 
@@ -63,8 +63,31 @@ try {
     echo '<p>' . $result . '</p>';
     displayRequestResponse($soapClient);
 
-    $result = $soapClient->getArticleById(2);
-    var_dump($result);
+     //Function soap get article by Id
+     echo '<p> Retrouver un article par son id :</p>';
+     $result = $soapClient->getArticleById(100);
+     var_dump($result);
+
+     echo "<p> Libelle de l'article  : " . $result->libelle . "</p>";
+
+
+     //Function soap get Categorie of an article
+     echo "<p> Retrouver la catégorie d'un article</p>";
+     $result = $soapClient->getCategorieByArticleId(100);
+     var_dump($result);
+
+     echo "<p> Libelle de la catégorie  : " . $result->libelle . "</p>";
+
+     displayRequestResponse($soapClient);
+
+
+    //Function soap get all article
+    // echo '<p> Retrouver tous les articles de la base:</p>';
+    // $result = $soapClient->getAllArticles();
+    // var_dump($result);
+    // displayRequestResponse($soapClient);
+
+   
     echo '<p>' . $result->id . ' : ' . $result->libelle . '</p>';
     displayRequestResponse($soapClient);
 } catch (SoapFault $fault) {

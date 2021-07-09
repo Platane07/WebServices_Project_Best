@@ -3,6 +3,8 @@
 namespace App\Soap;
 
 use Doctrine\Persistence\ManagerRegistry;
+use App\Soap\ArticleSoap;
+use App\Soap\CategorieSoap;
 
 /**
  * Class SoapOperations
@@ -54,14 +56,44 @@ class SoapOperations
     }
 
     /**
-     * Récupère le libellé d'un secteur dont on connaît l'id
+     * Récupère le libellé d'un article dont on connaît l'id
      * @param int $id
      * @return \App\Soap\ArticleSoap Le secteur avec l'id et le libellé
      */
     public function getArticleById($id)
     {
         $article = $this->doct->getRepository(\App\Entity\Article::class)->find($id);
-        $articleSoap = new ArticleSoap($article->getId(), $article->getLibelle(), $article->getTexte(), $article->getVisuel(), $article->getPrix(), $article->getCategorie());
+        $articleSoap = new ArticleSoap($article->getId(), $article->getLibelle(), $article->getTexte(), $article->getVisuel(), $article->getPrix());
         return $articleSoap;
     }
-}
+
+    // /**
+    //  * Retourne tous les articles
+    //  * @param int $id
+    //  * @return \App\Soap\ArticleSoap Le secteur avec l'id et le libellé
+    //  */
+    // public function getAllArticles()
+    // {
+    //     $articles = $this->doct->getRepository(\App\Entity\Article::class)->findAll();
+
+    //     $articlesSoap = [];
+    //     foreach ($articles as $article) {
+    //         array_push(new ArticleSoap($article->getId(), $article->getLibelle(), $article->getTexte(), $article->getVisuel(), $article->getPrix(), $article->getCategorie()));
+    //     }
+    //     return $articlesSoap;
+    // }
+
+    /**
+     * retourne tous les articles d'une catégorie donnée
+     * @param int $id
+     * @return \App\Soap\CategorieSoap Le secteur avec l'id et le libellé
+     */
+    public function getCategorieByArticleId($id)
+    {
+        $article = $this->doct->getRepository(\App\Entity\Article::class)->find($id);
+        $categorie = $article->getCategorie();
+        $categorieSoap = new CategorieSoap($categorie->getId(), $categorie->getLibelle(), $categorie->getVisuel(), $categorie->getTexte());
+
+        return $categorieSoap;
+    }
+ }

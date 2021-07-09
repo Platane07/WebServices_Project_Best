@@ -2,8 +2,6 @@
 
 namespace App\Soap;
 
-use App\Soap\ArticleSoap;
-
 /**
  * Class CategorieSoap
  * @package App\Soap
@@ -30,11 +28,6 @@ class CategorieSoap
      */
     public $visuel;
 
-    /**
-     * @var ArticleSoap[] $articles
-     */
-    public $articles;
-
 
     /**
      * CategorieSoap constructor.
@@ -42,7 +35,6 @@ class CategorieSoap
      * @param string $libelle
      * @param string $texte
      * @param string $visuel
-     * @param int $prix
      */
     public function __construct(
         int $id,
@@ -54,7 +46,6 @@ class CategorieSoap
         $this->libelle = $libelle;
         $this->texte = $texte;
         $this->visuel = $visuel;
-        $this->articles = [];
     }
 
     /**
@@ -111,21 +102,5 @@ class CategorieSoap
     public function setVisuel(string $Visuel): void
     {
         $this->Visuel = $Visuel;
-    }
-
-    /**
-     * @return ArticleSoap[]
-     */
-    public function getArticles(): array
-    {
-        return $this->articles;
-    }
-
-    /**
-     * @param ArticleSoap $article
-     */
-    public function addArticle(ArticleSoap $article): void
-    {
-        array_push($this->articles, $article);
     }
 }
